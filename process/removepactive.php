@@ -15,6 +15,12 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-echo "<meta http-equiv='refresh' content='0;url=../' />";
-?>
+session_start();
+// hide all error
+error_reporting(0);
 
+$API->comm("/ppp/active/remove", array(
+    ".id" => "$removepactive",
+));
+
+echo "<script>window.location='./?ppp=active&session=" . $session . "'</script>";
