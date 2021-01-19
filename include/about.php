@@ -81,16 +81,13 @@ if (!isset($_SESSION["mikhmon"])) {
 </div>
 <div class="col-12">
 <div class="card">
-<!-- 
   <div class="card-header">
   <h3><i class="fa fa-info-circle"></i> Changelog</h3>
   </div>
   <div class="card-body">
- 
   <div class="iFWrapper">
     <iframe src="https://laksa19.github.io/mikhmonv3" ></iframe>
   </div>
- -->
   </div>
 </div>
 </div>

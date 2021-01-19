@@ -160,8 +160,13 @@ if (!isset($_SESSION["mikhmon"])) {
   }
 }
 
-
+if($idleto != "disable"){
+  $didleto = 'display:block;';
+}else{
+  $didleto = 'display:none;';
+}
 ?>
+<span style="display:none;" id="idto"><?= $idleto ;?></span>
 
 
 <?php if ($id != "") { ?>
@@ -197,6 +202,7 @@ if (!isset($_SESSION["mikhmon"])) {
       }
     ?>
   </select>
+  <a title="Idle Timeout" style="<?= $didleto; ?>"><span style="width:70px;" class="pd-5 radius-3"><i class="fa fa-clock-o mr-1"></i>  <span class="mr-1" id="timer"></span></span></a>
 </div>
 </div>
 
@@ -242,7 +248,7 @@ include('./info.php');
 
 <div id="navbar" class="navbar">
   <div class="navbar-left">
-    <a id="brand" class="text-center" href="./?session=<?= $session; ?>"><?= $hotspotname; ?></a>
+    <a id="brand" class="text-center" href="./?session=<?= $session; ?>">MIKHMON</a>
 
 <a id="openNav" class="navbar-hover" href="javascript:void(0)"><i class="fa fa-bars"></i></a>
 <a id="closeNav" class="navbar-hover" href="javascript:void(0)"><i class="fa fa-bars"></i></a>
@@ -274,6 +280,7 @@ include('./info.php');
       ?>
     
   </select>
+  <a title="Idle Timeout" style="<?= $didleto; ?>"><span style="width:70px;" class="pd-5 radius-3"><i class="fa fa-clock-o mr-1"></i>  <span class="mr-1" id="timer"></span></span></a>
 </div>
 </div>
 

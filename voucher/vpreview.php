@@ -53,7 +53,7 @@ if (!isset($_SESSION["mikhmon"])) {
   $password = "1234";
   $timelimit = "6h";
   $getdatalimit = "1073741824";
-  $comment = "test";
+  $comment = "vc-495-11.27.20-WARKOP";
   $validity = "1d";
   $profile = "6Jam";
 

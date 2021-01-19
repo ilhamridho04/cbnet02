@@ -30,7 +30,7 @@ session_start();
         <img src="img/favicon.png" alt="MIKHMON Logo">
       </div>
       <div  class="text-center">
-      <span style="font-size: 25px; margin: 10px;">Kenzie Mancagar Hotspot</span>
+      <span style="font-size: 25px; margin: 10px;">MIKHMON</span>
       </div>
       <center>
       <form autocomplete="off" action="" method="post">

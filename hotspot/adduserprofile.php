@@ -178,10 +178,10 @@ if (!isset($_SESSION["mikhmon"])) {
       </select>
     </td>
   </tr>
-  <tr id="validity" style="display:none;">
+  <tr id="validity">
     <td class="align-middle"><?= $_validity ?></td><td><input class="form-control" type="text" id="validi" size="4" autocomplete="off" name="validity" value="" required="1"></td>
   </tr>
-  <tr id="graceperiod" style="display:none;">
+  <tr id="graceperiod">
     <td class="align-middle"><?= $_grace_period ?></td><td><input class="form-control" type="text" id="gracepi" size="4" autocomplete="off" name="graceperiod" placeholder="5m" value="5m" required="1"></td>
   </tr>
   <tr>

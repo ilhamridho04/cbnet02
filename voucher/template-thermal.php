@@ -1,77 +1,80 @@
-												
-<style>
-	.qrcode{
-		height:150px;
-		width:150px;
-	}
+<?php
+// Copy Paste ke template editor [Settings -> Template Editor].
+
+if (substr($validity, -1) == "d") {
+  $validity = "Aktif:" . substr($validity, 0, -1) . "Hari";
+} else if (substr($validity, -1) == "h") {
+  $validity = "Aktif:" . substr($validity, 0, -1) . "Jam";
+}
+if (substr($timelimit, -1) == "d" & strlen($timelimit) > 3) {
+  $timelimit = "Durasi:" . ((substr($timelimit, 0, -1) * 7) + substr($timelimit, 2, 1)) . "Hari";
+} else if (substr($timelimit, -1) == "d") {
+  $timelimit = "Durasi:" . substr($timelimit, 0, -1) . "Hari";
+} else if (substr($timelimit, -1) == "h") {
+  $timelimit = "Durasi:" . substr($timelimit, 0, -1) . "Jam";
+} else if (substr($timelimit, -1) == "w") {
+  $timelimit = "Durasi:" . (substr($timelimit, 0, -1) * 7) . "Hari";
+}
+$mitra = explode("-", $comment);
+if($mitra >= 4){
+	$com3 = $mitra[3];
+	$com4 = $mitra[4];
+	$getcomment = $com3." ".$com4;
+}
+?>
+
+<style type="text/css">
+.rotate {
+  vertical-align: bottom;
+  text-align: center;
+}
+.rotate span {
+  -ms-writing-mode: tb-rl;
+  -webkit-writing-mode: vertical-rl;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  white-space: nowrap;
+}
+.qrcode{
+		height:60px;
+		width:60px;
+}
+
 </style>
 
-<table class="voucher" style=" width: 180px;">
+<table class="voucher" style="width: 230px;">
   <tbody>
-<!-- Logo Hotspotname -->
     <tr>
-      <td style="text-align: center; font-size: 14px; font-weight:bold;"><?= $hotspotname; ?></td>
+      <td style="font-weight: bold; border-right: 1px solid black;" class="rotate" rowspan="4"><span><?= $price; ?></span></td>
+      <td style="font-weight: bold" colspan="2"><?= $hotspotname; ?> </td>
+      <?php if ($qr == "yes") { ?>
+      <td style="" rowspan="3"><?= $qrcode ?></td>
+      <?php 
+    } else { ?>
+      <td style="" rowspan="3"><img style="width: 60px; height: 60px;" src="<?= $logo ?>" alt="logo"></td>  
+      <?php 
+    } ?>
     </tr>
     <tr>
-      <td style="text-align: center; font-size: 14px; font-weight:bold; border-bottom: 1px black solid;"><img src="<?= $logo; ?>" alt="logo" style="height:30px;border:0;"><br><?= date("Y-m-d h:i:sa") ?></td>
-    </tr>
-<!-- /  -->
-    <tr>
-      <td>
-    <table style=" text-align: center; width: 170px; font-size: 12px;">
-  <tbody>
-<!-- Username Password QR    -->
-    <tr>
-      <td>
-        <table style="width:100%;">
-<!-- Username = Password    -->
-<?php if ($usermode == "vc") { ?>
-        <tr>
-          <td font-size: 12px;>Kode Voucher</td>
-        </tr>
-        <tr>
-          <td style="width:100%; border: 1px solid black; font-weight:bold; font-size:16px;"><?= $username; ?></td>
-        </tr>
-<!-- /  -->
-<!-- Username & Password  -->
-<?php 
-} elseif ($usermode == "up") { ?>
-        <tr>
-          <td style="width: 50%">Username</td>
-          <td >Password</td>
-        </tr>
-        <tr style="font-size: 14px;">
-          <td style="border: 1px solid black; font-weight:bold;"><?= $username; ?></td>
-          <td style="border: 1px solid black; font-weight:bold;"><?= $password; ?></td>
-        </tr>
-<?php 
-} ?>
-<!-- /  -->
-    </tr>
-      </td>
-<!-- QR Code    -->
-<?php if ($qr == "yes") { ?>
-      <td colspan="2">
-	<?= $qrcode ?>
-      </td>
-      </tr>
-<?php 
-} ?>
-<!-- /  -->
-    <tr>
-      <!-- Price  -->
-      <td colspan="2" style="border-top: 1px solid black;font-weight:bold; font-size:16px"><?= $validity; ?> <?= $timelimit; ?> <?= $datalimit; ?> <?= $price; ?></td>
-<!-- /  -->
+      <?php if ($usermode == "vc") { ?>  
+      <td style="width: 100%; border-top: 1px solid black; border-bottom: 1px solid black; font-size: 20px; text-align: center;"><?= $username; ?></td>
+      <?php 
+    } elseif ($usermode == "up") { ?>
+      <td style="width: 100%; border-top: 1px solid black; border-bottom: 1px solid black; font-size: 15px; text-align: left;"><?= "User: " . $username . "<br>Pass: " . $password; ?></td>
+      <?php 
+    } ?>  
     </tr>
     <tr>
-      <!-- Note  -->
-      <td colspan="2" style="font-weight:bold; font-size:12px">Login: http://<?= $dnsname; ?></td>
-<!-- /  -->
+      <td style="font-size: 10px;"><?= $validity; ?> <?= $timelimit; ?> <?= $datalimit; ?></td>
     </tr>
-<!-- /  -->
+    <tr>
+<!--
+	<tr>
+      <td colspan="3" style="font-size: 10px;">MITRA : </span></td>
+    </tr>
+-->
+      <td colspan="3" style="font-size: 10px;">Login: http://<?= $dnsname; ?> <span id="num"> <?= " [$num]"; ?></span></td>
+    </tr>
+	
   </tbody>
-    </table>
-      </td>
-    </tr>
-  </tbody>
-</table>	        	        
+</table>	            	          	            	          	            	          	        	        	        	        	        	        	        	        	        	        	        	        	        	        	        	        	        	        	        	        	        	        	        	        	        	        	        	        	        	        	        	        	        	        	        	        	        	        	        	        	        	        	        	        	        	        	        	        	        	        	        	        	        	        	        	        	        	        	        

@@ -63,6 +63,6 @@ if($uname != ""){
 		</style>
 	</head>
 	<body>
-		<div style="padding:5px;" id="exp" ><?= $exp;?></div>	
+		<?= $exp;?>	
 	</body>
 </html>
